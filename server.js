@@ -62,7 +62,69 @@ const app = express()
 // Set a port for the server to listen on
 const port = args.port || args.p || process.env.PORT || 8080
 // Load app middleware here to serve routes, accept data requests, etc.
-//
+// This connects the API to the HTML.
+app.use(express.static('public'));
+app.get('/', (req, res) => {
+	res.sendFile(__dirname + '/public/index.html');
+});
+
+// Import LIB for rock paper scissor here
+import { rps } from './public/rpsls.js';
+import { rpsls ] from '.public/rpsls.js';
+
+// Load up API routes bellow
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+
+app.get("/app/", (req, res) => {
+    res.status(200).send('200 OK');
+})
+
+app.get("/app/rps/", (req, res) => {
+    res.status(200).send(JSON.stringify(rps()));
+})
+
+app.get("/app/rpsls/", (req, res) => {
+    res.status(200).send(JSON.stringify(rpsls()));
+})
+
+//queries
+app.get("/app/rps/play/", (req, res) => {
+    res.status(200).send(JSON.stringify(rps(req.query.shot)));
+})
+
+app.get("/app/rpsls/play/", (req, res) => {
+    res.status(200).send(JSON.stringify(rpsls(req.query.shot)));
+})
+
+// accept JSON request bodies
+app.post("/app/rps/play/", (req, res) => {
+    res.status(200).send(JSON.stringify(rps(req.body.shot)));
+})
+
+app.post("/app/rpsls/play/", (req, res) => {
+    res.status(200).send(JSON.stringify(rpsls(req.body.shot)));
+})
+
+//url (parameter) endpoint
+app.get("/app/rps/play/:shot", (req, res) => {
+    res.status(200).send(JSON.stringify(rps(req.params.shot)));
+})
+
+app.get("/app/rpsls/play/:shot", (req, res) => {
+    res.status(200).send(JSON.stringify(rpsls(req.params.shot)));
+})
+
+app.get("*", (req, res) => {
+    res.status(404).send("404 NOT FOUND");
+})
+
+app.listen(port, () =>{
+    console.log('Server listening on port ' + port);
+})
+
+
 // Create and update access log
 // The morgan format below is the Apache Foundation combined format but with ISO8601 dates
 app.use(morgan(':remote-addr - :remote-user [:date[iso]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"',
