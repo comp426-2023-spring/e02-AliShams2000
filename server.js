@@ -120,10 +120,6 @@ app.get("*", (req, res) => {
     res.status(404).send("404 NOT FOUND");
 })
 
-app.listen(port, () =>{
-    console.log('Server listening on port ' + port);
-})
-
 
 // Create and update access log
 // The morgan format below is the Apache Foundation combined format but with ISO8601 dates

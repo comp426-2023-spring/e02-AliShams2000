@@ -81,4 +81,5 @@ function restart() {
     document.getElementById('rpslsshots').className = 'hide';
     document.getElementById('rps').checked = true;
     document.getElementById('opp').checked = false;
-}
+}	
+	
