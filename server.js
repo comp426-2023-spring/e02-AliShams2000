@@ -61,6 +61,7 @@ if (args.debug) {
 const app = express()
 // Set a port for the server to listen on
 const port = args.port || args.p || process.env.PORT || 8080
+console.log(port)
 // Load app middleware here to serve routes, accept data requests, etc.
 // This connects the API to the HTML.
 app.use(express.static('public'));
@@ -69,8 +70,7 @@ app.get('/', (req, res) => {
 });
 
 // Import LIB for rock paper scissor here
-import { rps } from './public/rpsls.js';
-import { rpsls ] from '.public/rpsls.js';
+import { rps, rpsls } from './lib/rpsls.js';
 
 // Load up API routes bellow
 app.use(express.json());
