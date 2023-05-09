@@ -7,7 +7,8 @@
   
   /* Set the font family for the entire document */
   body {
-    font-family: Arial, sans-serif;
+    font-family: Papyrus, sans-serif;
+    background-color: #a4ff91;
   }
   
   /* Center the content and apply a max-width */
@@ -18,11 +19,16 @@
   }
   
   /* Add some spacing and center align the text for headings */
-  h1 {
+  h2 {
     margin-bottom: 1rem;
     text-align: center;
   }
-  
+ 
+  div {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
   /* Style the form elements */
   form {
     display: flex;
@@ -39,7 +45,7 @@
   
   /* Style the submit and refresh buttons */
   button {
-    background-color: #007bff;
+    background-color: #1ac91a;
     border: none;
     border-radius: 5px;
     color: white;
